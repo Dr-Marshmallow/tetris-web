@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tetris Web</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>TETRIS</h1>
+    </header>
+
+    <main class="layout">
+      <section class="panel">
+        <div class="scorebox">
+          <div class="label">Punteggio</div>
+          <div id="score" class="value">0</div>
+        </div>
+        <div class="scorebox">
+          <div class="label">Livello</div>
+          <div id="level" class="value">1</div>
+        </div>
+        <div class="scorebox">
+          <div class="label">Linee</div>
+          <div id="lines" class="value">0</div>
+        </div>
+        <div class="controls">
+          <div class="label">Comandi</div>
+          <ul>
+            <li><kbd>←</kbd> <kbd>→</kbd> Muovi</li>
+            <li><kbd>↑</kbd> Ruota</li>
+            <li><kbd>↓</kbd> Soft drop</li>
+            <li><kbd>Space</kbd> Hard drop</li>
+            <li><kbd>F</kbd> Fullscreen</li>
+            <li><kbd>P</kbd> Pausa</li>
+            <li><kbd>R</kbd> Reset</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="game">
+        <canvas id="board" width="300" height="600" aria-label="Campo di gioco"></canvas>
+        <div class="overlay hidden" id="overlay">
+          <div class="overlay-card">
+            <div id="overlay-title" class="overlay-title">GAME OVER</div>
+            <div id="overlay-sub" class="overlay-sub">Premi R per ricominciare</div>
+          </div>
+        </div>
+        <div class="leaderboard hidden" id="leaderboard">
+          <div class="leaderboard-card">
+            <div class="leaderboard-title">Classifica</div>
+            <div class="leaderboard-form" id="leaderboard-form">
+              <label for="player-name">Inserisci il tuo nome</label>
+              <input id="player-name" type="text" maxlength="18" placeholder="Inserisci il tuo nome" autocomplete="off" required />
+              <div id="leaderboard-error" class="leaderboard-error hidden"></div>
+              <div class="leaderboard-actions">
+                <button id="submit-score" type="button">Salva punteggio</button>
+                <button id="close-leaderboard" class="leaderboard-close" type="button">Chiudi</button>
+              </div>
+            </div>
+            <ol id="leaderboard-list" class="leaderboard-list"></ol>
+            <button id="close-leaderboard-list" class="leaderboard-close" type="button">Chiudi</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="next">
+          <div class="label">Prossimo</div>
+          <canvas id="next" width="120" height="120" aria-label="Prossimo pezzo"></canvas>
+        </div>
+        <div class="stats">
+          <div class="label">Pezzi</div>
+          <div id="pieces" class="value">0</div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

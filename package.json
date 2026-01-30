@@ -1,0 +1,9 @@
+{
+  "name": "tetris-web",
+  "version": "1.0.0",
+  "description": "Tetris Web con classifica persistente su JSON",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  }
+}
