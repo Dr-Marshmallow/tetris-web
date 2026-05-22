@@ -1,0 +1,10 @@
+services:
+  tetris:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - SCORES_PATH=/app/data/scores.json
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped

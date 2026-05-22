@@ -6,7 +6,7 @@ const path = require("path");
 const { URL } = require("url");
 
 const ROOT = __dirname;
-const SCORES_PATH = path.join(ROOT, "scores.json");
+const SCORES_PATH = process.env.SCORES_PATH || path.join(ROOT, "scores.json");
 const PORT = process.env.PORT || 3000;
 
 const MIME = {
