@@ -47,12 +47,35 @@ Risposta esempio (POST):
 }
 ```
 
+## Docker (Raspberry Pi e non solo)
+
+L'immagine e basata su `node:lts-alpine` e supporta ARM (Raspberry Pi 3/4/5) e x86_64.
+
+```bash
+docker compose up -d
+```
+
+Apri `http://<ip-del-raspberry>:3000` nel browser.
+
+I punteggi vengono salvati in `./data/scores.json` sull'host e sopravvivono a riavvii e rebuild.
+
+Comandi utili:
+
+```bash
+docker compose build    # rebuilda l'immagine dopo modifiche al codice
+docker compose logs     # vedi i log del server
+docker compose down     # ferma e rimuove il container
+```
+
 ## Struttura progetto
 - `index.html` - markup della pagina
 - `styles.css` - stile dell'interfaccia
 - `script.js` - logica di gioco
 - `server.js` - server HTTP e API classifica
-- `scores.json` - database JSON dei punteggi
+- `scores.json` - database JSON dei punteggi (avvio locale)
+- `data/scores.json` - database JSON dei punteggi (avvio Docker)
+- `Dockerfile` - immagine Docker
+- `docker-compose.yml` - orchestrazione Docker
 
 ## Note
 Il progetto e realizzato in HTML/CSS/JS puro, senza dipendenze esterne.
